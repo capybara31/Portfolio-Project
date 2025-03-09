@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="contact.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">Portfolio</a>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li class="active"><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="contact-section">
+        <div class="contact-info">
+            <h2>Contact Me</h2>
+            <p>If you have any questions or business inquiries, feel free to reach out!</p>
+            
+            <div class="info-box">
+                <i class='bx bx-map'></i>
+                <p>Yunusobod 1234, Tashkent, Uzbekistan</p>
+            </div>
+            <div class="info-box">
+                <i class='bx bx-phone'></i>
+                <p>+998 (90) 909 44 02</p>
+            </div>
+            <div class="info-box">
+                <i class='bx bx-envelope'></i>
+                <p>ammarbakhshaliev@gmail.com</p>
+            </div>
+        </div>
+
+        <div class="contact-form">
+            <h2>Send Message</h2>
+            <form action="#">
+                <div class="input-box">
+                    <i class='bx bx-user'></i>
+                    <input type="text" placeholder="Full Name" required>
+                </div>
+                <div class="input-box">
+                    <i class='bx bx-envelope'></i>
+                    <input type="email" placeholder="Email" required>
+                </div>
+                <div class="input-box textarea-box">
+                    <i class='bx bx-message'></i>
+                    <textarea placeholder="Type your message..." required></textarea>
+                </div>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Ammar Bakhshaliev | All rights reserved.</p>
+    </footer>
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.querySelector("form");
+    
+        form.addEventListener("submit", function (event) {
+            event.preventDefault(); // Останавливаем стандартную отправку формы
+    
+            const name = document.querySelector('input[type="text"]').value;
+            const email = document.querySelector('input[type="email"]').value;
+            const message = document.querySelector('textarea').value;
+    
+            const botToken = "7727482425:AAGzaltg4sLWH6N2u6TnRlNlbARsSJDhjMk"; // Вставь сюда свой токен бота
+            const chatId = "1719555746"; // Вставь свой chat_id
+    
+            const text = `✉️ *Новое сообщение с сайта*:\n\n👤 *Имя:* ${name}\n📧 *Email:* ${email}\n💬 *Сообщение:* ${message}`
+    
+            const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
+            const params = {
+                chat_id: chatId,
+                text: text,
+                parse_mode: "Markdown"
+            };
+    
+            fetch(url, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(params)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.ok) {
+                    alert("Сообщение успешно отправлено!");
+                    form.reset();
+                } else {
+                    alert("Ошибка при отправке. Проверьте настройки бота.");
+                }
+            })
+            .catch(error => {
+                alert("Ошибка соединения с Telegram.");
+                console.error("Ошибка:", error);
+            });
+        });
+    });
+    </script>
+</html>

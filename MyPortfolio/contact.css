@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    background-color: #1f242d;
+    color: #fff;
+    line-height: 1.6;
+}
+
+/* Навигация */
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: #1f242d;
+    padding: 20px 9%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+.navbar .logo {
+    font-size: 35px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.navbar ul {
+    display: flex;
+}
+
+.navbar ul li {
+    list-style: none;
+    margin-left: 30px;
+}
+
+.navbar ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 500;
+    transition: 0.5s;
+}
+
+.navbar ul li:hover a, 
+.navbar ul li.active a {
+    color: #7cf03d;
+}
+
+/* Секция контактов */
+.contact-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 50px;
+    padding: 120px 9% 60px;
+}
+
+.contact-info, .contact-form {
+    background: #272d37;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(124, 240, 61, 0.3);
+    flex: 1;
+    min-width: 300px;
+    max-width: 450px;
+}
+
+.contact-info h2, .contact-form h2 {
+    margin-bottom: 15px;
+    font-size: 22px;
+    color: #7cf03d;
+}
+
+.contact-info p {
+    margin-bottom: 15px;
+}
+
+.info-box {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.info-box i {
+    font-size: 24px;
+    color: #7cf03d;
+    margin-right: 13px;
+    margin-bottom: 13px;
+}
+
+/* Форма */
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-box {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.input-box i {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #7cf03d;
+    font-size: 20px;
+}
+
+.input-box input, .input-box textarea {
+    width: 100%;
+    padding: 10px 10px 10px 40px;
+    border: none;
+    border-radius: 5px;
+    background: #1f242d;
+    color: #fff;
+}
+
+.input-box.textarea-box i {
+    top: 20px;
+}
+
+.input-box textarea {
+    resize: none;
+    height: 100px;
+}
+
+.contact-form button {
+    display: inline-block;
+    padding: 10px 30px;
+    background: #7cf03d;
+    border: 2px solid #7cf03d;
+    border-radius: 40px;
+    font-size: 16px;
+    color: #1f242d;
+    font-weight: 600;
+    transition: .5s;
+    cursor: pointer; /* Курсор изменяется на указатель (рука) */
+    box-shadow: none; /* Без свечения по умолчанию */
+}
+
+.contact-form button:enabled {
+    display: inline-block;
+    padding: 10px 30px;
+    background: #7cf03d;
+    border: 2px solid #7cf03d;
+    border-radius: 40px;
+    font-size: 16px;
+    color: #1f242d;
+    font-weight: 600;
+    transition: .5s;
+    cursor: pointer; /* Курсор изменяется на указатель (рука) */
+    box-shadow: 0 0 10px #7cf03d; /* Добавляется свечение */
+}
+
+.contact-form button:hover {
+    background: #1f242d;
+    color: #7cf03d;
+    box-shadow: none;
+}
+
+/* Футер */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #1a1e27;
+    color: #7cf03d;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .contact-section {
+        flex-direction: column;
+        align-items: center;
+        padding: 100px 5% 50px;
+    }
+
+    .navbar {
+        padding: 15px 5%;
+    }
+
+    .navbar ul {
+        display: none;
+    }
+}
